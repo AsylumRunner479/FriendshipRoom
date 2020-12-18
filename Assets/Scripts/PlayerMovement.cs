@@ -26,7 +26,11 @@ namespace Mirror.Examples.OneK
             float v = Input.GetAxis("Vertical");
 
             Vector3 dir = new Vector3(h, 0, v);
-            playerSphere.Move(dir * Time.deltaTime * speed);
+            if (playerSphere.isGrounded)
+            {
+                playerSphere.Move(dir * Time.deltaTime * speed);
+            }
+            
         }
     }
 }
