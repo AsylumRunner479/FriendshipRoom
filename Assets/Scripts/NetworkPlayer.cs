@@ -11,7 +11,7 @@ public class NetworkPlayer : NetworkBehaviour
     private GameObject lobbyPlayer;
     [SerializeField]
     private GameObject gameplayPlayer;
-
+    
     private bool connectionToLobbyUI = false;
 
     private LobbyMenu lobby;
@@ -78,7 +78,9 @@ public class NetworkPlayer : NetworkBehaviour
             {
                 SceneManager.UnloadSceneAsync("Lobby");
                 SceneManager.LoadSceneAsync("Gameplay", LoadSceneMode.Additive);
+                
             }
+            
         }
     }
 }

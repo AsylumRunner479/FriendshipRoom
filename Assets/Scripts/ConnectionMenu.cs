@@ -8,15 +8,19 @@ public class ConnectionMenu : MonoBehaviour
 {
     [SerializeField]
     private InputField ipInput;
-
+    public NetworkManager network;
     public void OnClickHost()
     {
-        NetworkManager.singleton.StartHost();
+        network.StartHost();
     }
     public void OnClickConnect()
     {
-        NetworkManager.singleton.networkAddress = string.IsNullOrEmpty(ipInput.text) ? "localhost" : ipInput.text;
-        NetworkManager.singleton.StartClient();   
+       
+        network.networkAddress = string.IsNullOrEmpty(ipInput.text) ? "localhost" : ipInput.text;
+        
+        network.StartClient();
+        //Destroy(network);
+        //network = FindObjectOfType<NetworkManager>();
     }
     // Start is called before the first frame update
     void Start()
